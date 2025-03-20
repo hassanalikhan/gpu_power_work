@@ -2,6 +2,9 @@
 #Template for AL projects for Dynamics 365 Business Central
 #launch.json folder
 .vscode/
+# Google App Engine generated folder
+appengine-generated/
+tiny_llama_retrained/
 #Cache folder
 .alcache/
 #Symbols folder
