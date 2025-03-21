@@ -1,36 +1,131 @@
-W0321 00:38:25.202290 22918170195136 torch/distributed/run.py:779] 
-W0321 00:38:25.202290 22918170195136 torch/distributed/run.py:779] *****************************************
-W0321 00:38:25.202290 22918170195136 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
-W0321 00:38:25.202290 22918170195136 torch/distributed/run.py:779] *****************************************
+W0321 00:50:00.655361 22575788950720 torch/distributed/run.py:779] 
+W0321 00:50:00.655361 22575788950720 torch/distributed/run.py:779] *****************************************
+W0321 00:50:00.655361 22575788950720 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0321 00:50:00.655361 22575788950720 torch/distributed/run.py:779] *****************************************
 Number of GPUs available: 8
 Number of GPUs available: 8
 Number of GPUs available: 8
-Number of GPUs available: 8Number of GPUs available: 8
+Number of GPUs available: 8
+Number of GPUs available: 8
+Number of GPUs available: 8
+Number of GPUs available: 8
+Number of GPUs available: 8
+Initial model loading device: cuda:0
+Initial model loading device: cuda:0
+Initial model loading device: cuda:0
+Initial model loading device: cuda:0
+Initial model loading device: cuda:0
+Initial model loading device: cuda:0
+Initial model loading device: cuda:0
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Initial model loading device: cuda:0
+Dataset size after preprocessing: 23767
+Dataset size after preprocessing: 23767
+Dataset size after preprocessing: 23767
+[2025-03-21 00:50:16,484] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-21 00:50:16,725] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Dataset size after preprocessing: 23767
+[2025-03-21 00:50:16,745] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Dataset size after preprocessing: 23767
+Unfreezing all layers...
+Total trainable parameters: 1,100,048,384
+Dataset size after preprocessing: 23767
+[2025-03-21 00:50:17,456] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-21 00:50:17,478] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-03-21 00:50:17,486] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Dataset size after preprocessing: 23767
+Starting training with effective batch size: 8
+Starting training with effective batch size: 8
+[2025-03-21 00:50:17,998] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Starting training with effective batch size: 8
+Starting training with effective batch size: 8
+Starting training with effective batch size: 8
+Starting training with effective batch size: 8
+Starting training with effective batch size: 8
+Dataset size after preprocessing: 23767
+[2025-03-21 00:50:27,610] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Starting training with effective batch size: 8
+  0%|          | 0/2971 [00:00<?, ?it/s][rank0]:[W321 00:50:33.173572808 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank6]:[W321 00:50:34.325263874 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank3]:[W321 00:50:34.363790021 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank7]:[W321 00:50:34.404571260 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank4]:[W321 00:50:34.406656674 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank1]:[W321 00:50:34.426639084 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank2]:[W321 00:50:34.430457192 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+[rank5]:[W321 00:50:34.432909724 reducer.cpp:1400] Warning: find_unused_parameters=True was specified in DDP constructor, but did not find any unused parameters in the forward pass. This flag results in an extra traversal of the autograd graph every iteration,  which can adversely affect performance. If your model indeed never has any unused parameters in the forward pass, consider turning this flag off. Note that this warning may be a false positive if your model has flow control causing later iterations to have unused parameters. (function operator())
+  0%|          | 1/2971 [00:01<1:12:29,  1.46s/it]  0%|          | 2/2971 [00:01<32:53,  1.50it/s]    0%|          | 4/2971 [00:01<14:56,  3.31it/s]  0%|          | 6/2971 [00:01<09:31,  5.19it/s]  0%|          | 8/2971 [00:02<10:53,  4.54it/s]  0%|          | 10/2971 [00:02<08:28,  5.82it/s]  0%|          | 12/2971 [00:02<07:15,  6.80it/s]  0%|          | 14/2971 [00:02<06:28,  7.61it/s]  1%|          | 16/2971 [00:03<05:57,  8.26it/s]  1%|          | 18/2971 [00:03<05:37,  8.76it/s]  1%|          | 20/2971 [00:03<05:22,  9.14it/s]  1%|          | 22/2971 [00:03<05:12,  9.42it/s]  1%|          | 24/2971 [00:03<05:08,  9.55it/s]  1%|          | 26/2971 [00:04<05:04,  9.66it/s]  1%|          | 28/2971 [00:04<05:01,  9.77it/s]  1%|          | 29/2971 [00:04<05:00,  9.80it/s]  1%|          | 31/2971 [00:04<04:56,  9.91it/s]  1%|          | 33/2971 [00:04<04:57,  9.89it/s]  1%|          | 34/2971 [00:04<04:56,  9.90it/s]  1%|          | 36/2971 [00:05<04:55,  9.94it/s]  1%|▏         | 38/2971 [00:05<04:54,  9.97it/s]  1%|▏         | 40/2971 [00:05<04:56,  9.89it/s]  1%|▏         | 41/2971 [00:05<04:56,  9.87it/s]  1%|▏         | 42/2971 [00:05<04:56,  9.89it/s]  1%|▏         | 43/2971 [00:05<04:55,  9.90it/s]  1%|▏         | 44/2971 [00:05<04:55,  9.91it/s]  2%|▏         | 46/2971 [00:06<04:55,  9.90it/s]  2%|▏         | 47/2971 [00:06<04:54,  9.92it/s]  2%|▏         | 48/2971 [00:06<04:57,  9.83it/s]  2%|▏         | 49/2971 [00:06<04:56,  9.86it/s]  2%|▏         | 50/2971 [00:06<04:57,  9.82it/s]                                                 {'loss': 2.5509, 'grad_norm': 7.520228862762451, 'learning_rate': 4.927633793335578e-05, 'epoch': 0.02}
+  2%|▏         | 50/2971 [00:06<04:57,  9.82it/s]  2%|▏         | 51/2971 [00:06<04:58,  9.77it/s]  2%|▏         | 52/2971 [00:06<04:57,  9.81it/s]  2%|▏         | 53/2971 [00:06<04:58,  9.77it/s]  2%|▏         | 54/2971 [00:07<04:57,  9.82it/s]  2%|▏         | 56/2971 [00:07<04:53,  9.93it/s]  2%|▏         | 57/2971 [00:07<04:54,  9.91it/s]  2%|▏         | 59/2971 [00:07<04:53,  9.93it/s]  2%|▏         | 60/2971 [00:07<04:53,  9.92it/s]  2%|▏         | 62/2971 [00:07<04:51,  9.98it/s]  2%|▏         | 63/2971 [00:07<04:51,  9.98it/s]  2%|▏         | 65/2971 [00:08<04:50, 10.02it/s]  2%|▏         | 66/2971 [00:08<04:51,  9.97it/s]  2%|▏         | 67/2971 [00:08<04:51,  9.97it/s]  2%|▏         | 69/2971 [00:08<04:50, 10.00it/s]  2%|▏         | 71/2971 [00:08<04:48, 10.04it/s]  2%|▏         | 73/2971 [00:08<04:47, 10.08it/s]  3%|▎         | 75/2971 [00:09<04:47, 10.06it/s]  3%|▎         | 77/2971 [00:09<04:46, 10.11it/s]  3%|▎         | 79/2971 [00:09<04:46, 10.11it/s]  3%|▎         | 81/2971 [00:09<04:46, 10.10it/s]  3%|▎         | 83/2971 [00:09<04:45, 10.10it/s]  3%|▎         | 85/2971 [00:10<04:46, 10.08it/s]  3%|▎         | 87/2971 [00:10<04:45, 10.10it/s]  3%|▎         | 89/2971 [00:10<04:45, 10.08it/s]  3%|▎         | 91/2971 [00:10<04:46, 10.05it/s]  3%|▎         | 93/2971 [00:10<04:46, 10.06it/s]  3%|▎         | 95/2971 [00:11<04:45, 10.07it/s]  3%|▎         | 97/2971 [00:11<04:46, 10.03it/s]  3%|▎         | 99/2971 [00:11<04:45, 10.07it/s]                                                 {'loss': 1.6387, 'grad_norm': 7.56234884262085, 'learning_rate': 4.843487041400202e-05, 'epoch': 0.03}
+  3%|▎         | 100/2971 [00:11<04:45, 10.07it/s]  3%|▎         | 101/2971 [00:11<04:47, 10.00it/s]  3%|▎         | 103/2971 [00:11<04:46, 10.03it/s]  4%|▎         | 105/2971 [00:12<04:47,  9.96it/s]  4%|▎         | 106/2971 [00:12<04:47,  9.96it/s]  4%|▎         | 107/2971 [00:12<04:48,  9.93it/s]  4%|▎         | 108/2971 [00:12<04:48,  9.92it/s]  4%|▎         | 109/2971 [00:12<04:48,  9.93it/s]  4%|▎         | 110/2971 [00:12<04:48,  9.92it/s]  4%|▍         | 112/2971 [00:12<04:47,  9.96it/s]  4%|▍         | 113/2971 [00:12<04:47,  9.94it/s]  4%|▍         | 114/2971 [00:12<04:47,  9.95it/s]  4%|▍         | 116/2971 [00:13<04:46,  9.96it/s]  4%|▍         | 118/2971 [00:13<04:45,  9.99it/s]  4%|▍         | 120/2971 [00:13<04:45,  9.98it/s]  4%|▍         | 121/2971 [00:13<04:45,  9.98it/s]  4%|▍         | 123/2971 [00:13<04:45,  9.98it/s]  4%|▍         | 124/2971 [00:13<04:45,  9.97it/s]  4%|▍         | 126/2971 [00:14<04:45,  9.97it/s]  4%|▍         | 128/2971 [00:14<04:45,  9.96it/s]  4%|▍         | 129/2971 [00:14<04:45,  9.96it/s]  4%|▍         | 131/2971 [00:14<04:44,  9.98it/s]  4%|▍         | 133/2971 [00:14<04:43, 10.01it/s]  5%|▍         | 135/2971 [00:15<04:43, 10.01it/s]  5%|▍         | 137/2971 [00:15<04:44,  9.97it/s]  5%|▍         | 139/2971 [00:15<04:43,  9.99it/s]  5%|▍         | 140/2971 [00:15<04:44,  9.97it/s]  5%|▍         | 141/2971 [00:15<04:43,  9.97it/s]  5%|▍         | 143/2971 [00:15<04:43,  9.97it/s]  5%|▍         | 144/2971 [00:16<04:45,  9.90it/s]  5%|▍         | 145/2971 [00:16<04:45,  9.89it/s]  5%|▍         | 146/2971 [00:16<04:45,  9.89it/s]  5%|▍         | 147/2971 [00:16<04:46,  9.86it/s]  5%|▍         | 148/2971 [00:16<04:45,  9.89it/s]  5%|▌         | 150/2971 [00:16<04:43,  9.96it/s]                                                  {'loss': 1.5419, 'grad_norm': 3.5695114135742188, 'learning_rate': 4.759340289464827e-05, 'epoch': 0.05}
+  5%|▌         | 150/2971 [00:16<04:43,  9.96it/s]  5%|▌         | 151/2971 [00:16<04:44,  9.92it/s]  5%|▌         | 152/2971 [00:16<04:44,  9.89it/s]  5%|▌         | 154/2971 [00:17<04:44,  9.89it/s]  5%|▌         | 155/2971 [00:17<04:45,  9.87it/s]  5%|▌         | 156/2971 [00:17<04:44,  9.88it/s]  5%|▌         | 157/2971 [00:17<04:43,  9.91it/s]  5%|▌         | 158/2971 [00:17<04:43,  9.93it/s]  5%|▌         | 159/2971 [00:17<04:45,  9.86it/s]  5%|▌         | 161/2971 [00:17<04:43,  9.91it/s]  5%|▌         | 163/2971 [00:17<04:41,  9.97it/s]  6%|▌         | 165/2971 [00:18<04:40, 10.00it/s]  6%|▌         | 166/2971 [00:18<04:40, 10.00it/s]  6%|▌         | 168/2971 [00:18<04:39, 10.01it/s]  6%|▌         | 170/2971 [00:18<04:40,  9.99it/s]  6%|▌         | 171/2971 [00:18<04:40,  9.97it/s]  6%|▌         | 173/2971 [00:18<04:40,  9.97it/s]  6%|▌         | 175/2971 [00:19<04:39, 10.01it/s]  6%|▌         | 176/2971 [00:19<04:40,  9.98it/s]  6%|▌         | 178/2971 [00:19<04:39, 10.01it/s]  6%|▌         | 179/2971 [00:19<04:39,  9.99it/s]  6%|▌         | 180/2971 [00:19<04:39,  9.98it/s]  6%|▌         | 182/2971 [00:19<04:38, 10.00it/s]  6%|▌         | 183/2971 [00:19<04:39,  9.96it/s]  6%|▌         | 184/2971 [00:20<04:39,  9.96it/s]  6%|▋         | 186/2971 [00:20<04:39,  9.97it/s]  6%|▋         | 188/2971 [00:20<04:36, 10.05it/s]  6%|▋         | 190/2971 [00:20<04:36, 10.07it/s]  6%|▋         | 192/2971 [00:20<04:35, 10.08it/s]  7%|▋         | 194/2971 [00:21<04:34, 10.13it/s]  7%|▋         | 196/2971 [00:21<04:34, 10.12it/s]  7%|▋         | 198/2971 [00:21<04:33, 10.14it/s]  7%|▋         | 200/2971 [00:21<04:33, 10.15it/s]                                                  {'loss': 1.5448, 'grad_norm': 5.984928607940674, 'learning_rate': 4.675193537529451e-05, 'epoch': 0.07}
+  7%|▋         | 200/2971 [00:21<04:33, 10.15it/s]  7%|▋         | 202/2971 [00:21<04:33, 10.14it/s]  7%|▋         | 204/2971 [00:21<04:32, 10.14it/s]  7%|▋         | 206/2971 [00:22<04:32, 10.14it/s]  7%|▋         | 208/2971 [00:22<04:37,  9.97it/s]  7%|▋         | 209/2971 [00:22<04:41,  9.82it/s]  7%|▋         | 210/2971 [00:22<04:45,  9.68it/s]  7%|▋         | 211/2971 [00:22<04:45,  9.65it/s]  7%|▋         | 212/2971 [00:22<04:46,  9.62it/s]  7%|▋         | 214/2971 [00:23<04:41,  9.79it/s]  7%|▋         | 216/2971 [00:23<04:38,  9.89it/s]  7%|▋         | 218/2971 [00:23<04:36,  9.95it/s]  7%|▋         | 220/2971 [00:23<04:34, 10.03it/s]  7%|▋         | 222/2971 [00:23<04:32, 10.09it/s]  8%|▊         | 224/2971 [00:24<04:31, 10.13it/s]  8%|▊         | 226/2971 [00:24<04:30, 10.14it/s]  8%|▊         | 228/2971 [00:24<04:30, 10.14it/s]  8%|▊         | 230/2971 [00:24<04:29, 10.15it/s]  8%|▊         | 232/2971 [00:24<04:29, 10.16it/s]  8%|▊         | 234/2971 [00:24<04:30, 10.11it/s]  8%|▊         | 236/2971 [00:25<04:30, 10.13it/s]  8%|▊         | 238/2971 [00:25<04:29, 10.15it/s]  8%|▊         | 240/2971 [00:25<04:29, 10.15it/s]  8%|▊         | 242/2971 [00:25<04:29, 10.13it/s]  8%|▊         | 244/2971 [00:25<04:30, 10.10it/s]  8%|▊         | 246/2971 [00:26<04:29, 10.11it/s]  8%|▊         | 248/2971 [00:26<04:29, 10.09it/s]  8%|▊         | 250/2971 [00:26<04:29, 10.09it/s]                                                  {'loss': 1.592, 'grad_norm': 5.933446407318115, 'learning_rate': 4.591046785594076e-05, 'epoch': 0.08}
+  8%|▊         | 250/2971 [00:26<04:29, 10.09it/s]  8%|▊         | 252/2971 [00:26<04:30, 10.05it/s]  9%|▊         | 254/2971 [00:26<04:31, 10.02it/s]  9%|▊         | 256/2971 [00:27<04:31, 10.02it/s]  9%|▊         | 258/2971 [00:27<04:30, 10.02it/s]  9%|▉         | 260/2971 [00:27<04:30, 10.01it/s]  9%|▉         | 262/2971 [00:27<04:30, 10.01it/s]  9%|▉         | 264/2971 [00:27<04:30, 10.00it/s]  9%|▉         | 265/2971 [00:28<04:31,  9.98it/s]  9%|▉         | 267/2971 [00:28<04:32,  9.94it/s]  9%|▉         | 268/2971 [00:28<04:32,  9.91it/s]  9%|▉         | 269/2971 [00:28<04:32,  9.90it/s]  9%|▉         | 271/2971 [00:28<04:30,  9.97it/s]  9%|▉         | 272/2971 [00:28<04:30,  9.97it/s]  9%|▉         | 274/2971 [00:28<04:30,  9.96it/s]  9%|▉         | 275/2971 [00:29<04:31,  9.93it/s]  9%|▉         | 277/2971 [00:29<04:30,  9.98it/s]  9%|▉         | 279/2971 [00:29<04:29,  9.99it/s]  9%|▉         | 281/2971 [00:29<04:29,  9.99it/s]  9%|▉         | 282/2971 [00:29<04:29,  9.98it/s] 10%|▉         | 284/2971 [00:29<04:29,  9.95it/s] 10%|▉         | 285/2971 [00:30<04:33,  9.83it/s] 10%|▉         | 287/2971 [00:30<04:30,  9.91it/s] 10%|▉         | 288/2971 [00:30<04:30,  9.91it/s] 10%|▉         | 290/2971 [00:30<04:29,  9.94it/s] 10%|▉         | 292/2971 [00:30<04:28,  9.96it/s] 10%|▉         | 294/2971 [00:30<04:27,  9.99it/s] 10%|▉         | 296/2971 [00:31<04:26, 10.03it/s] 10%|█         | 298/2971 [00:31<04:26, 10.03it/s] 10%|█         | 300/2971 [00:31<04:26, 10.01it/s]                                                  {'loss': 1.5419, 'grad_norm': 4.997577667236328, 'learning_rate': 4.5069000336587005e-05, 'epoch': 0.1}
+ 10%|█         | 300/2971 [00:31<04:26, 10.01it/s] 10%|█         | 302/2971 [00:31<04:27,  9.99it/s] 10%|█         | 304/2971 [00:31<04:26, 10.01it/s] 10%|█         | 306/2971 [00:32<04:25, 10.04it/s] 10%|█         | 308/2971 [00:32<04:23, 10.09it/s] 10%|█         | 310/2971 [00:32<04:23, 10.11it/s] 11%|█         | 312/2971 [00:32<04:22, 10.13it/s] 11%|█         | 314/2971 [00:32<04:22, 10.14it/s] 11%|█         | 316/2971 [00:33<04:21, 10.14it/s] 11%|█         | 318/2971 [00:33<04:21, 10.14it/s] 11%|█         | 320/2971 [00:33<04:20, 10.16it/s] 11%|█         | 322/2971 [00:33<04:20, 10.15it/s] 11%|█         | 324/2971 [00:33<04:20, 10.15it/s] 11%|█         | 326/2971 [00:34<04:21, 10.12it/s] 11%|█         | 328/2971 [00:34<04:21, 10.12it/s] 11%|█         | 330/2971 [00:34<04:20, 10.12it/s] 11%|█         | 332/2971 [00:34<04:20, 10.11it/s] 11%|█         | 334/2971 [00:34<04:22, 10.05it/s] 11%|█▏        | 336/2971 [00:35<04:21, 10.07it/s] 11%|█▏        | 338/2971 [00:35<04:21, 10.08it/s] 11%|█▏        | 340/2971 [00:35<04:20, 10.10it/s] 12%|█▏        | 342/2971 [00:35<04:19, 10.11it/s] 12%|█▏        | 344/2971 [00:35<04:19, 10.12it/s] 12%|█▏        | 346/2971 [00:36<04:20, 10.08it/s] 12%|█▏        | 348/2971 [00:36<04:21, 10.05it/s] 12%|█▏        | 350/2971 [00:36<04:21, 10.03it/s]                                                  {'loss': 1.6814, 'grad_norm': 6.201745986938477, 'learning_rate': 4.422753281723326e-05, 'epoch': 0.12}
+ 12%|█▏        | 350/2971 [00:36<04:21, 10.03it/s] 12%|█▏        | 352/2971 [00:36<04:20, 10.04it/s] 12%|█▏        | 354/2971 [00:36<04:21,  9.99it/s] 12%|█▏        | 355/2971 [00:37<04:22,  9.98it/s] 12%|█▏        | 356/2971 [00:37<04:22,  9.97it/s] 12%|█▏        | 357/2971 [00:37<04:22,  9.96it/s] 12%|█▏        | 359/2971 [00:37<04:21,  9.98it/s] 12%|█▏        | 360/2971 [00:37<04:21,  9.98it/s] 12%|█▏        | 362/2971 [00:37<04:21,  9.96it/s] 12%|█▏        | 364/2971 [00:37<04:21,  9.95it/s] 12%|█▏        | 365/2971 [00:38<04:21,  9.95it/s] 12%|█▏        | 367/2971 [00:38<04:20, 10.00it/s] 12%|█▏        | 368/2971 [00:38<04:21,  9.96it/s] 12%|█▏        | 369/2971 [00:38<04:21,  9.96it/s] 12%|█▏        | 371/2971 [00:38<04:19, 10.02it/s] 13%|█▎        | 372/2971 [00:38<04:21,  9.95it/s] 13%|█▎        | 373/2971 [00:38<04:22,  9.89it/s] 13%|█▎        | 374/2971 [00:38<04:24,  9.82it/s] 13%|█▎        | 376/2971 [00:39<04:21,  9.92it/s] 13%|█▎        | 378/2971 [00:39<04:19, 10.00it/s] 13%|█▎        | 380/2971 [00:39<04:17, 10.04it/s] 13%|█▎        | 382/2971 [00:39<04:17, 10.04it/s] 13%|█▎        | 384/2971 [00:39<04:19,  9.95it/s] 13%|█▎        | 385/2971 [00:40<04:20,  9.94it/s] 13%|█▎        | 386/2971 [00:40<04:20,  9.93it/s] 13%|█▎        | 387/2971 [00:40<04:20,  9.92it/s] 13%|█▎        | 388/2971 [00:40<04:22,  9.85it/s] 13%|█▎        | 390/2971 [00:40<04:21,  9.89it/s] 13%|█▎        | 391/2971 [00:40<04:21,  9.88it/s] 13%|█▎        | 392/2971 [00:40<04:20,  9.90it/s] 13%|█▎        | 393/2971 [00:40<04:20,  9.90it/s] 13%|█▎        | 395/2971 [00:41<04:17, 10.00it/s] 13%|█▎        | 396/2971 [00:41<04:17,  9.99it/s] 13%|█▎        | 398/2971 [00:41<04:17, 10.01it/s] 13%|█▎        | 400/2971 [00:41<04:17, 10.00it/s]                                                  {'loss': 1.5764, 'grad_norm': 7.781111240386963, 'learning_rate': 4.3386065297879504e-05, 'epoch': 0.13}
+ 13%|█▎        | 400/2971 [00:41<04:17, 10.00it/s] 13%|█▎        | 401/2971 [00:41<04:17,  9.96it/s] 14%|█▎        | 403/2971 [00:41<04:16, 10.01it/s] 14%|█▎        | 404/2971 [00:41<04:16, 10.00it/s] 14%|█▎        | 406/2971 [00:42<04:15, 10.03it/s]W0321 00:51:15.151066 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160145 closing signal SIGTERM
+W0321 00:51:15.151953 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160146 closing signal SIGTERM
+W0321 00:51:15.152767 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160147 closing signal SIGTERM
+W0321 00:51:15.153374 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160148 closing signal SIGTERM
+W0321 00:51:15.154490 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160149 closing signal SIGTERM
+W0321 00:51:15.155164 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160150 closing signal SIGTERM
+W0321 00:51:15.155938 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160151 closing signal SIGTERM
+W0321 00:51:15.156595 22575788950720 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 1160152 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/elastic/agent/server/api.py", line 680, in run
+    result = self._invoke_run(role)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/elastic/agent/server/api.py", line 835, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 79, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 1160076 got signal: 2
 
-Number of GPUs available: 8
-Number of GPUs available: 8
-Number of GPUs available: 8
-Initial model loading device: cuda:0
-Initial model loading device: cuda:0
-Initial model loading device: cuda:0
-Initial model loading device: cuda:0
-Initial model loading device: cuda:0
-Initial model loading device: cuda:0
-Initial model loading device: cuda:0
-Initial model loading device: cuda:0
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
-Unfreezing all layers...
-Total trainable parameters: 1,100,048,384
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/azureuser/.conda/envs/llama/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/elastic/agent/server/api.py", line 688, in run
+    logger.warning("Received %s death signal, shutting down workers", e.sigval)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/logging/__init__.py", line 1458, in warning
+    self._log(WARNING, msg, args, **kwargs)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/logging/__init__.py", line 1587, in _log
+    record = self.makeRecord(self.name, level, fn, lno, msg, args,
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/logging/__init__.py", line 1556, in makeRecord
+    rv = _logRecordFactory(name, level, fn, lno, msg, args, exc_info, func,
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/logging/__init__.py", line 314, in __init__
+    if (args and len(args) == 1 and isinstance(args[0], collections.abc.Mapping)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/abc.py", line 98, in __instancecheck__
+    return _abc_instancecheck(cls, instance)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/abc.py", line 102, in __subclasscheck__
+    return _abc_subclasscheck(cls, subclass)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/abc.py", line 102, in __subclasscheck__
+    return _abc_subclasscheck(cls, subclass)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/abc.py", line 102, in __subclasscheck__
+    return _abc_subclasscheck(cls, subclass)
+  File "/home/azureuser/.conda/envs/llama/lib/python3.8/site-packages/torch/distributed/elastic/multiprocessing/api.py", line 79, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 1160076 got signal: 15
