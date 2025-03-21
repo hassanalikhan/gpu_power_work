@@ -78,7 +78,7 @@ echo "Total training time: ${HOURS} hours, ${MINUTES} minutes, ${SECONDS} second
 
 # Wait 5 more minutes (300 seconds)
 echo "Waiting 30 seconds before generating power report..."
-WAIT_TIME=30
+WAIT_TIME=70
 while [ $WAIT_TIME -gt 0 ]; do
     echo -e "\tWaiting $WAIT_TIME seconds..."
     sleep 10
@@ -86,13 +86,26 @@ while [ $WAIT_TIME -gt 0 ]; do
 done
 echo "Running power analysis..."
 
-# Activate the llama environment (replace with your actual environment name)
+# Activate the llama environment 
 conda activate llama
 
-# Run the draw_power.py script
+# Full path to conda activation script
+CONDA_PATH="/home/azureuser/miniconda3"
+
+# Initialize conda properly
+eval "$($CONDA_PATH/bin/conda shell.bash hook)"
+
+# Activate the llama environment (replace with your actual environment name)
+conda activate llama
 echo "Running power analysis..."
-python draw_power.py > power_analysis.log 2>&1
+# Run the first script in the background with proper conda environment
+# Run the draw_power.py script with the full path to the Python binary in the llama environment
+nohup python draw_power.py > power_analysis.log 2>&1 &
 echo "Power analysis completed"
+
+
+sleep 10
+
 
 # Gracefully terminate the power monitoring process
 echo "Stopping power monitoring process..."
@@ -104,3 +117,4 @@ else
 fi
 
 echo "All tasks completed successfully"
+

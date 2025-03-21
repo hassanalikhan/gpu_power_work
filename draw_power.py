@@ -69,7 +69,7 @@ def plot_combined_gpu_power():
     combined_df = pd.concat(all_data)
 
     # Set up the plot
-    plt.figure(figsize=(15, 6))
+    plt.figure(figsize=(22, 6))
 
     # Plot each GPU power usage from all files
     for gpu_id in combined_df['GPU_ID'].unique():

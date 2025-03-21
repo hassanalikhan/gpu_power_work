@@ -89,10 +89,10 @@ def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
         num_train_epochs=epochs,
         per_device_train_batch_size=1,  # Start conservatively
         gradient_accumulation_steps=1,
-        save_steps=500,
-        save_total_limit=2,
+        save_steps=5000,
+        save_total_limit=0,
         logging_dir="./logs",
-        logging_steps=50,
+        logging_steps=200,
         
         # Distributed training settings
         ddp_backend="nccl",  # Use NCCL for GPU communication
