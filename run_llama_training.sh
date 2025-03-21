@@ -40,6 +40,14 @@ else
   echo "matplotlib already installed."
 fi
 
+# Install pynvml if not present
+if ! python -c "import pynvml" &>/dev/null; then
+  echo "pynvml not found. Installing via pip..."
+  pip install nvidia-ml-py3
+else
+  echo "pynvml already installed."
+fi
+
 # Run the first script in the background with proper Conda environment
 nohup python get_and_save_power.py > get_power.log 2>&1 &
 GET_POWER_PID=$!
@@ -98,13 +106,8 @@ echo "Running power analysis..."
 # Activate the Conda environment again before running draw_power.py
 conda activate "$ENV_NAME"
 
-# Debug: Check Python path and installed packages
-which python >> debug_log.txt
-which pip >> debug_log.txt
-python -m pip list | grep matplotlib >> debug_log.txt
-
 # Run draw_power.py using the full path to Python inside the Conda environment
-nohup "$CONDA_PATH/envs/$ENV_NAME/bin/python" draw_power.py > power_analysis.log 2>&1 &
+nohup python draw_power.py > power_analysis.log 2>&1 &
 echo "Power analysis completed"
 
 sleep 10
