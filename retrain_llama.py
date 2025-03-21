@@ -90,7 +90,7 @@ def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
         per_device_train_batch_size=1,  # Start conservatively
         gradient_accumulation_steps=1,
         save_steps=500,
-        save_total_limit=2,
+        save_total_limit=10,
         logging_dir="./logs",
         logging_steps=50,
         
