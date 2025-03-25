@@ -3,10 +3,50 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments,
 from datasets import load_dataset
 import os
 import numpy as np
+import threading
+import time
+
 
 # Ensure environment variables are set
 os.environ["TOKENIZERS_PARALLELISM"] = "true"  # Disable tokenizer parallelism to avoid warnings
 
+
+def cleanup_checkpoints(checkpoint_dir, max_checkpoints=10, interval=3600):
+    """
+    Periodically clean up old checkpoints to prevent disk space overflow.
+    
+    :param checkpoint_dir: Directory containing model checkpoints
+    :param max_checkpoints: Maximum number of recent checkpoints to keep
+    :param interval: Time between cleanup runs (in seconds)
+    """
+    while True:
+        try:
+            # Get all checkpoint directories sorted by creation time
+            checkpoints = [
+                os.path.join(checkpoint_dir, d) 
+                for d in os.listdir(checkpoint_dir) 
+                if os.path.isdir(os.path.join(checkpoint_dir, d)) and d.startswith("checkpoint-")
+            ]
+            
+            # Sort checkpoints by creation time (newest first)
+            checkpoints.sort(key=lambda x: os.path.getctime(x), reverse=True)
+            
+            # Remove older checkpoints
+            if len(checkpoints) > max_checkpoints:
+                for checkpoint in checkpoints[max_checkpoints:]:
+                    try:
+                        print(f"Removing old checkpoint: {checkpoint}")
+                        shutil.rmtree(checkpoint)
+                    except Exception as e:
+                        print(f"Error removing checkpoint {checkpoint}: {e}")
+            
+            # Wait before next cleanup
+            time.sleep(interval)
+        
+        except Exception as e:
+            print(f"Checkpoint cleanup error: {e}")
+            time.sleep(interval)
+            
 def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0", 
                       dataset_name="wikitext", 
                       dataset_config="wikitext-2-raw-v1", 
@@ -42,22 +82,7 @@ def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
     print(f"Total trainable parameters: {trainable_params:,}")
     
     # 2. Dataset
-    # 2. Dataset selection
-    if dataset_name == "allenai/c4":
-        dataset = load_dataset("allenai/c4", "realnewslike")
-    elif dataset_name == "openwebtext":
-        dataset = load_dataset("openwebtext")
-    elif dataset_name == "bookcorpus":
-        dataset = load_dataset("bookcorpus")
-    elif dataset_name == "pile":
-        dataset = load_dataset("the_pile", split="train")
-    elif dataset_name == "wikitext":
-        dataset = load_dataset(dataset_name, "wikitext-2-raw-v1")
-        reduction_factor = 1
-    else:
-        raise ValueError(f"Dataset {dataset_name} not supported!")
-
-    #dataset = load_dataset(dataset_name, dataset_config)
+    dataset = load_dataset(dataset_name, dataset_config)
     train_dataset = dataset["train"]
     
     # 3. Process the dataset
@@ -99,13 +124,13 @@ def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
     
     # 4. Training Arguments - using proper distributed training
     training_args = TrainingArguments(
-        output_dir="/mnt/azureuser/llama-training-output",
+        output_dir=output_dir,
         overwrite_output_dir=True,
         num_train_epochs=epochs,
         per_device_train_batch_size=1,  # Start conservatively
         gradient_accumulation_steps=1,
-        save_steps=500,
-        save_total_limit=10,
+        save_steps=1000,
+        save_total_limit=5,
         logging_dir="./logs",
         logging_steps=50,
         
@@ -115,6 +140,11 @@ def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
         
         # Disable DataParallel
         remove_unused_columns=True,
+        
+        # Avoid hanging
+        ddp_timeout=7200,
+        dataloader_num_workers=4,
+        dataloader_pin_memory=True,
     )
     
     # 5. Trainer - let the Trainer handle DDP
@@ -123,6 +153,14 @@ def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
         args=training_args,
         train_dataset=tokenized_dataset,
     )
+    
+    # Start checkpoint cleanup thread
+    cleanup_thread = threading.Thread(
+        target=cleanup_checkpoints, 
+        args=(output_dir, 1, 30),  # Keep 1 most recent checkpoints, run every 30 seconds
+        daemon=True  # Allows thread to be killed when main program exits
+    )
+    cleanup_thread.start()
     
     # 6. Train
     effective_batch = training_args.per_device_train_batch_size * gpu_count * training_args.gradient_accumulation_steps
@@ -142,6 +180,15 @@ def retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0",
             print("\nDebugging the chunking error:")
             print("This is likely due to tensor dimensionality issues in the DataParallel scatter operation.")
             print("Try running with TORCH_DISTRIBUTED_DEBUG=INFO for more information.")
+    
+    # 7. Save if training was successful
+    try:
+        print(f"Saving model to {output_dir}...")
+        model.save_pretrained(output_dir)
+        tokenizer.save_pretrained(output_dir)
+        print("Model saved successfully!")
+    except Exception as e:
+        print(f"Error saving model: {e}")
 
 # Direct script execution
 if __name__ == "__main__":
@@ -150,5 +197,4 @@ if __name__ == "__main__":
         print("Setting up distributed environment manually...")
         os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2,3,4,5,6,7"  # Use all GPUs
     
-    #retrain_tiny_llama()
-    retrain_tiny_llama(model_name="TinyLlama/TinyLlama-1.1B-Chat-v1.0", dataset_name="allenai/c4")
+    retrain_tiny_llama()

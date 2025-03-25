@@ -32,6 +32,8 @@ source "$CONDA_PATH/etc/profile.d/conda.sh"
 # Activate the Conda environment
 conda activate "$ENV_NAME"
 
+pip install -r requirements.txt
+
 # Install matplotlib if not present
 if ! python -c "import matplotlib" &>/dev/null; then
   echo "matplotlib not found. Installing..."
@@ -55,7 +57,7 @@ echo "Started get_and_save_power.py with PID $GET_POWER_PID"
 
 # Wait for 30 seconds
 echo "Waiting 30 seconds before starting training..."
-WAIT_TIME=30
+WAIT_TIME=10
 while [ $WAIT_TIME -gt 0 ]; do
     echo -e "\tWaiting $WAIT_TIME seconds..."
     sleep 10
@@ -95,7 +97,7 @@ echo "Total training time: ${HOURS} hours, ${MINUTES} minutes, ${SECONDS} second
 
 # Wait 5 more minutes (300 seconds)
 echo "Waiting 30 seconds before generating power report..."
-WAIT_TIME=70
+WAIT_TIME=20
 while [ $WAIT_TIME -gt 0 ]; do
     echo -e "\tWaiting $WAIT_TIME seconds..."
     sleep 10
