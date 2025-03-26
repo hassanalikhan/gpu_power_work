@@ -26,3 +26,15 @@ The script performs the following steps:
 CONDA_PATH="/home/azureuser/miniconda3"
 eval "$($CONDA_PATH/bin/conda shell.bash hook)"
 conda activate llama
+
+## Models and Datasets
+# TinyLlama/TinyLlama-1.1B-Chat-v1.0
+                # meta-llama/Llama-2-7b-hf
+                # meta-llama/Llama-3.1-8B
+                # NousResearch/Llama-2-7b-chat-hf
+
+                # wikitext
+                # c4
+                # pile
+                # book corpus
+                # openwebtext
