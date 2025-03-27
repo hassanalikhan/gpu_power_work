@@ -13,7 +13,7 @@ num_gpus = pynvml.nvmlDeviceGetCount()
 
 # Global variables
 gpu_data = []
-sampling_interval = 0.05
+sampling_interval = 0.1
 data_duration = 60
 lock = threading.Lock()
 stop_event = threading.Event()  # Stop signal

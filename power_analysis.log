@@ -1,4 +1,1 @@
-Traceback (most recent call last):
-  File "draw_power.py", line 2, in <module>
-    import matplotlib.pyplot as plt
-ModuleNotFoundError: No module named 'matplotlib'
+Saved combined graph as gpu_graphs/combined_gpu_power_usage_moving_average_less_50.png

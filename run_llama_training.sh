@@ -22,23 +22,42 @@ handle_ctrl_c() {
 # Trap Ctrl+C (SIGINT) signal
 trap handle_ctrl_c INT
 
-# Full path to conda activation script
+# Full path to Conda
 CONDA_PATH="/home/azureuser/miniconda3"
+ENV_NAME="llama"
 
-# Initialize conda properly
-eval "$($CONDA_PATH/bin/conda shell.bash hook)"
+# Ensure Conda is initialized
+source "$CONDA_PATH/etc/profile.d/conda.sh"
 
-# Activate the llama environment (replace with your actual environment name)
-conda activate llama
+# Activate the Conda environment
+conda activate "$ENV_NAME"
 
-# Run the first script in the background with proper conda environment
+pip install -r requirements.txt
+
+# Install matplotlib if not present
+if ! python -c "import matplotlib" &>/dev/null; then
+  echo "matplotlib not found. Installing..."
+  conda install -y matplotlib
+else
+  echo "matplotlib already installed."
+fi
+
+# Install pynvml if not present
+if ! python -c "import pynvml" &>/dev/null; then
+  echo "pynvml not found. Installing via pip..."
+  pip install nvidia-ml-py3
+else
+  echo "pynvml already installed."
+fi
+
+# Run the first script in the background with proper Conda environment
 nohup python get_and_save_power.py > get_power.log 2>&1 &
 GET_POWER_PID=$!
 echo "Started get_and_save_power.py with PID $GET_POWER_PID"
 
 # Wait for 30 seconds
 echo "Waiting 30 seconds before starting training..."
-WAIT_TIME=30
+WAIT_TIME=10
 while [ $WAIT_TIME -gt 0 ]; do
     echo -e "\tWaiting $WAIT_TIME seconds..."
     sleep 10
@@ -49,7 +68,7 @@ echo "Starting training..."
 # Start time for training
 TRAINING_START=$(date +%s)
 
-# Run the second script (torchrun) with proper conda environment and redirect output
+# Run the second script (torchrun) with proper Conda environment
 echo "Starting distributed training on 8 GPUs..."
 nohup torchrun --nproc_per_node=8 retrain_llama.py > training_console.log 2>&1 &
 TRAINING_PID=$!
@@ -78,7 +97,7 @@ echo "Total training time: ${HOURS} hours, ${MINUTES} minutes, ${SECONDS} second
 
 # Wait 5 more minutes (300 seconds)
 echo "Waiting 30 seconds before generating power report..."
-WAIT_TIME=30
+WAIT_TIME=20
 while [ $WAIT_TIME -gt 0 ]; do
     echo -e "\tWaiting $WAIT_TIME seconds..."
     sleep 10
@@ -86,13 +105,14 @@ while [ $WAIT_TIME -gt 0 ]; do
 done
 echo "Running power analysis..."
 
-# Activate the llama environment (replace with your actual environment name)
-conda activate llama
+# Activate the Conda environment again before running draw_power.py
+conda activate "$ENV_NAME"
 
-# Run the draw_power.py script
-echo "Running power analysis..."
-python draw_power.py > power_analysis.log 2>&1
+# Run draw_power.py using the full path to Python inside the Conda environment
+nohup python draw_power.py > power_analysis.log 2>&1 &
 echo "Power analysis completed"
+
+sleep 10
 
 # Gracefully terminate the power monitoring process
 echo "Stopping power monitoring process..."
@@ -104,3 +124,4 @@ else
 fi
 
 echo "All tasks completed successfully"
+
